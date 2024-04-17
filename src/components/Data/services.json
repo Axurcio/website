@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name1": "Architects",
+        "name1": "Architecture",
         "name2": "Cloud | Digital | Data",
         "background": "h-[310px] p-12 bg-zinc-100 rounded-[45px] shadow border border-black justify-between items-center flex text-black",
         "arrow": "./services/ag.svg",
@@ -10,8 +10,8 @@
     },
     {
         "id": 2,
-        "name1": "Coaching",
-        "name2": "Agile | DevOps | Product Design",
+        "name1": "Technology Strategy",
+        "name2": "Roadmap | Vision | Execution",
         "background": "h-[310px] p-12 bg-lime rounded-[45px] shadow border border-black justify-between items-center flex text-black",
         "arrow": "./services/ag.svg",
         "link": "./",
@@ -19,8 +19,8 @@
     },
     {
         "id": 3,
-        "name1": "Multi-cloud experts",
-        "name2": "Customer focused | Vendor agnostic",
+        "name1": "Cloud Experts",
+        "name2": "Azure | AWS | GCP",
         "background": "h-[310px] p-12 bg-black rounded-[45px] shadow border border-black justify-between items-center flex text-white",
         "arrow": "./services/aw.svg",
         "link": "./",
@@ -28,8 +28,8 @@
     },
     {
         "id": 4,
-        "name1": "Email",
-        "name2": "Marketing",
+        "name1": "Agile Delivery",
+        "name2": "Scrum | Kanban | Lean",
         "background": "h-[310px] p-12 bg-zinc-100 rounded-[45px] shadow border border-black justify-between items-center flex text-black",
         "arrow": "./services/ag.svg",
         "link": "./",
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "name1": "FinOps",
-        "name2": "Cost Optimisation",
+        "name2": "Cost Optimization | Governance | Reporting",
         "background": "h-[310px] p-12 bg-lime rounded-[45px] shadow border border-black justify-between items-center flex text-black",
         "arrow": "./services/ag.svg",
         "link": "./",
@@ -46,8 +46,8 @@
     },
     {
         "id": 6,
-        "name1": "Analytics and",
-        "name2": "Tracking",
+        "name1": "Digital & Data",
+        "name2": "AI | ML | IoT | Blockchain",
         "background": "h-[310px] p-12 bg-black rounded-[45px] shadow border border-black justify-between items-center flex text-white",
         "arrow": "./services/aw.svg",
         "link": "./",

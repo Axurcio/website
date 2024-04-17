@@ -3,22 +3,22 @@
     [
         {
             "title": "CEO and Founder",
-            "name": "John Smith",
-            "description": "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy",
+            "name": "Chris McKelt",
+            "description": "20+ years of working in the IT industry delivering solutions to clients that help them succeed. ",
             "profile": "/team/c1.png",
-            "link": "/"
+            "link": "https://www.linkedin.com/in/chrismckelt/"
         },
         {
-            "title": "Director of Operations",
-            "name": "Jane Doe",
-            "description": "7+ years of experience in project management and team leadership. Strong organizational and communication skills",
+            "title": "Human Resources Partner",
+            "name": "Tracy Dallas",
+            "description": "15+ years of experience in project management and team leadership. Strong organizational and communication skills",
             "profile": "/team/c2.png",
             "link": "/"
         },
         {
-            "title": "Senior SEO Specialist",
-            "name": "Michael Brown",
-            "description": "5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization",
+            "title": "Data Engineer",
+            "name": "Lachlan James",
+            "description": "5+ years of experience in data engineering",
             "profile": "/team/c3.png",
             "link": "/"
         }
