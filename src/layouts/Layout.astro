@@ -11,12 +11,36 @@ import Footer from '../components/Footer.astro';
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Axurcio</title>
-    <meta
-      name="description"
-      content="A beautiful and functional landing page design created specifically for digital marketing agencies. With its clean and modern design, Axurcio is the perfect template to showcase your agency's services and case studies to potential clients. Built with astro and tailwindcss"
-    />
+    
+    <meta name="description" content="Cloud Consultants">
+    <meta name="author" content="Axurcio">
+    
+    <meta name="keywords" content="architects, cloud, perth">
+    
+    <link rel="canonical" href="https://axurcio.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Axurcio | Perth IT Consultants" />
+    <meta property="og:description"
+        content="Cloud Archticture on Azure and AWS and GCP" />
+    <meta property="og:url" content="https://axurcio.com" />
+    <meta property="og:site_name" content="Axurcio" />
+    <meta property="og:image" content="https://Axurcio.com/assets/images/logos/logo.png" />
+    <meta property="og:image:secure_url" content="https://Axurcio.com/assets/images/logos/logo.png" />
+    <meta property="og:image:width" content="1124" />
+    <meta property="og:image:height" content="854" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@axurcio">
+    <meta name="twitter:creator" content="@axurcio">
+    <meta name="twitter:title" content="Axurcio">
+    <meta name="twitter:description"
+        content="Perth IT consultants specialising in cloud solutions through agile delivery practices">
+    <meta name="twitter:image" content="https://axurcio.com/assets/images/logos/logo.png">
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9649471-5"></script>
+
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-white font-SpaceGrotesk space-y-20">
@@ -24,5 +48,17 @@ import Footer from '../components/Footer.astro';
     <slot />
     <Footer/>
     <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9649471-5']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
   </body>
 </html>
