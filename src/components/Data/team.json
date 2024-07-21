@@ -2,14 +2,14 @@
     "team":
     [
         {
-            "title": "CEO and Founder",
+            "title": "Principal Consultant",
             "name": "Chris McKelt",
             "description": "20+ years of working in the IT industry delivering solutions to clients that help them succeed. ",
             "profile": "/team/profile_small.jpg",
             "link": "https://www.linkedin.com/in/chrismckelt/"
         },
         {
-            "title": "Human Resources Partner",
+            "title": "Talent Partner",
             "name": "Tracy Dallas",
             "description": "15+ years of experience in project management and team leadership. Strong organizational and communication skills",
             "profile": "/team/tracy.jpg",
@@ -19,8 +19,8 @@
             "title": "Data Engineer",
             "name": "Lachlan James",
             "description": "5+ years of experience in data engineering",
-            "profile": "/team/c3.png",
-            "link": "/"
+            "profile": "/team/ljm.jpg",
+            "link": "https://www.linkedin.com/in/chrismckelt/"
         }
 
     ],
