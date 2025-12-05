@@ -1,0 +1,48 @@
+{
+	"name": "Nuxt.js Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+	"features": {
+	  "ghcr.io/devcontainers/features/node:1": {
+		"version": "18"
+	  },
+	  "ghcr.io/devcontainers/features/git:1": {},
+	  "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+		"packages": "curl"
+	  },
+	  "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+	  "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+	  "ghcr.io/dapr/cli/dapr-cli:0": {},
+	  "ghcr.io/devcontainers/features/azure-cli:1": {},
+	  "ghcr.io/devcontainers/features/github-cli:1": {},
+	  "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
+	},
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "editor.formatOnSave": true,
+		  "eslint.format.enable": true,
+		  "editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "true"
+		  }
+		},
+		"extensions": [
+		  "dbaeumer.vscode-eslint",
+		  "octref.vetur",
+		  "nuxtlabs.nuxt-developer-tools"
+		]
+	  }
+	},
+	"postCreateCommand": "npm install",
+	"remoteUser": "node",
+	"mounts": [
+	  "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+	],
+	"forwardPorts": [4321],
+	"portsAttributes": {
+	  "3000": {
+		"label": "Web dev server",
+      	"onAutoForward": "openBrowser"
+	  }
+	}
+  }
+  
