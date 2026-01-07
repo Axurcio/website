@@ -1,19 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Services from "../components/Services.astro"
-import Expertise from '../components/Expertise.astro';
-import Team from '../components/Team.astro';
-import Case from '../components/Case.astro';
+import Section from "@/components/core/Section.astro";
+import Features from "@/components/Features.astro";
+import Testimonial from "@/components/Testimonial.astro";
+import Base from "@/layouts/Base.astro";
+import Cta from "@/layouts/partials/Cta.astro";
+import { getEntry } from "astro:content";
+
+const homepage = await getEntry("homepage", "index");
+// console.log(homepage);
+const { banner, sections, features, testimonial } = homepage.data;
+const call_to_action = homepage.data.call_to_action;
 ---
 
-<Layout title="Axurcio">
-	<main class="space-y-20">
-		<Hero/>
-		<Services/>
-		<Case/>
-		<Team/>
-		<Expertise/>
-
-	</main>
-</Layout>
+<Base>
+  <!-- banner -->
+  <section class="lg:mb-10 animate-fade-in">
+    <Section section={banner} />
+  </section>
+  <!-- multi section -->
+  {
+    sections && (
+      <section class="multi-section">
+        {sections.map((section) => (
+          <Section section={section} />
+        ))}
+      </section>
+    )
+  }
+  <!-- key features -->
+  <Features features={features} />
+  <!-- testimonial -->
+  <Testimonial testimonial={testimonial} />
+  <!-- call to action -->
+  <Cta {...call_to_action} />
+  <!-- <Content /> -->
+</Base>

@@ -1,25 +1,39 @@
 ---
-import Container from "./Container.astro"
+import TestimonialSlider from "@/components/react/TestimonialSlider";
+import { markdownify } from "@/lib/utils/textConverter";
+
+
+export type TestimonialItem = {
+  avatar?: string;
+  author: string;
+  organization: string;
+  content: string;
+  rating: number;
+};
+
+export type Testimonial = {
+  title: string;
+  description: string;
+  testimonial_list: TestimonialItem[];
+};
+
+const { testimonial } = Astro.props;
 ---
-<Container>
-<div class="relative flex flex-col items-center md:flex-row">
-    <div class="row items-center py-5 md:pr-16 md:w-4/12 md:py-10">
-        <div class="text-center md:text-left space-y-3 bg-lime">
-            <h2 class="text-4xl font-medium leading-none sm:text-6xl">Testimonials</h2>
-        </div>
-    </div>
-    <div class="flex items-center py-5 md:w-8/12 md:py-10">
-        <p class="text-xl font-normal leading-7 text-center md:text-left">Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Services</p>
-    </div>
-</div>
 
-<div class="flex-row items-center my-6 p-14 bg-black text-white rounded-[45px]">
-    <div class="justify-items-center relative w-full border border-lime rounded-3xl">
-        <div class="p-4 md:p-10">
-            <p class="items-center justify-center text-white text-sm md:text-lg font-normal mb-4">"We have been working with Axurcio for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Axurcio to any company looking to grow their online presence."</p>
-            <span class="text-lime text-base md:text-xl font-medium">John Smith<br/></span><span class="text-white text-lg font-normal">Marketing Director at XYZ Corp</span>
-        </div>
+<section class="reviews">
+  <div class="container">
+    <div class="row justify-between">
+      <div class="lg:col-6 lg:mb-0 mb-4">
+        <h2 set:html={markdownify(testimonial.title)}/>
+      </div>
+      <div class="lg:col-4">
+        <p set:html={markdownify(testimonial.description)}/>
+      </div>
     </div>
-</div>
-
-</Container>
+    <div class="row mt-2 md:mt-10">
+      <div class="col-12">
+        <TestimonialSlider list={testimonial.testimonial_list} client:load />
+      </div>
+    </div>
+  </div>
+</section>
