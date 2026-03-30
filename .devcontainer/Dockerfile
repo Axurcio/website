@@ -1,7 +1,3 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:20-bullseye
+FROM node:25-bookworm
 
 WORKDIR /workspaces/website
- 
-RUN npm install
-
- 
