@@ -1,0 +1,82 @@
+---
+import { site } from "../data/site";
+---
+
+<form
+  action={`https://formsubmit.co/${site.email}`}
+  method="POST"
+  class="surface-panel space-y-6 p-8 sm:p-10"
+>
+  <input type="hidden" name="_subject" value="New Axurcio consultation request" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
+
+  <div class="space-y-2">
+    <h2 class="text-2xl font-semibold">Tell us about your initiative</h2>
+    <p class="text-sm leading-7 text-slate-600">
+      Share the challenge, the workflow, and the outcomes you are aiming for. We will follow up
+      within one business day.
+    </p>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label class="space-y-2 text-sm font-medium text-slate-700">
+      Full name
+      <input
+        type="text"
+        name="name"
+        required
+        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+      />
+    </label>
+    <label class="space-y-2 text-sm font-medium text-slate-700">
+      Work email
+      <input
+        type="email"
+        name="email"
+        required
+        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+      />
+    </label>
+    <label class="space-y-2 text-sm font-medium text-slate-700">
+      Organisation
+      <input
+        type="text"
+        name="company"
+        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+      />
+    </label>
+    <label class="space-y-2 text-sm font-medium text-slate-700">
+      Primary focus
+      <select
+        name="focus"
+        class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+      >
+        <option>AI Solutions</option>
+        <option>Agentic Workflows</option>
+        <option>Process Automation</option>
+        <option>Workforce Transformation</option>
+        <option>General Advisory</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="space-y-2 text-sm font-medium text-slate-700">
+    What are you trying to improve?
+    <textarea
+      name="message"
+      rows="6"
+      required
+      class="w-full rounded-[1.5rem] border border-slate-200 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+      placeholder="Describe the workflow, bottleneck, or transformation goal."
+    ></textarea>
+  </label>
+
+  <button
+    type="submit"
+    class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-brand-600"
+  >
+    Send enquiry
+    <span aria-hidden="true">-&gt;</span>
+  </button>
+</form>

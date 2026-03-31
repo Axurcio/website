@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import ButtonLink from "../../components/ButtonLink.astro";
+import { insights, site } from "../../data/site";
+
+export function getStaticPaths() {
+  return insights.map((insight) => ({
+    params: { slug: insight.slug },
+    props: { insight },
+  }));
+}
+
+const { insight } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: insight.title,
+  datePublished: insight.publishedAt,
+  author: {
+    "@type": "Organization",
+    name: site.name,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: site.name,
+  },
+  description: insight.summary,
+};
+---
+
+<Layout
+  title={insight.title}
+  description={insight.summary}
+  path={`/insights/${insight.slug}`}
+  schema={schema}
+>
+  <main class="section-shell pt-16">
+    <Container class="max-w-4xl space-y-10">
+      <div class="space-y-6">
+        <a href="/insights" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800">
+          <span aria-hidden="true">&lt;-</span>
+          Back to insights
+        </a>
+        <div class="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <span class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">{insight.category}</span>
+          <span>{insight.publishedAt}</span>
+          <span>{insight.readTime}</span>
+          <span>{insight.author}</span>
+        </div>
+        <h1 class="text-4xl font-semibold sm:text-5xl">{insight.title}</h1>
+        <p class="text-lg leading-8 text-slate-600">{insight.summary}</p>
+      </div>
+
+      <article class="surface-panel space-y-10 p-8 sm:p-10">
+        {insight.body.map((section) => (
+          <section class="space-y-5">
+            <h2 class="text-2xl font-semibold">{section.heading}</h2>
+            <div class="space-y-4">
+              {section.paragraphs.map((paragraph) => (
+                <p class="text-base leading-8 text-slate-600">{paragraph}</p>
+              ))}
+            </div>
+            {section.bullets && (
+              <ul class="space-y-3">
+                {section.bullets.map((bullet) => (
+                  <li class="flex gap-3 text-base leading-8 text-slate-600">
+                    <span class="mt-3 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+      </article>
+
+      <div class="dark-panel grid gap-6 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div class="space-y-4">
+          <p class="text-sm uppercase tracking-[0.22em] text-slate-400">Continue the conversation</p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl">
+            Want to apply this thinking to your organisation?
+          </h2>
+          <p class="max-w-2xl text-base leading-8 text-slate-300">
+            Axurcio works with leadership and delivery teams to translate AI strategy into
+            workflows, systems, and operating models that perform.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <ButtonLink href="/contact" label="Contact Axurcio" />
+          <ButtonLink href={site.calendlyUrl} label="Book a Consultation" variant="secondary" external />
+        </div>
+      </div>
+    </Container>
+  </main>
+</Layout>

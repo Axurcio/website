@@ -1,0 +1,67 @@
+---
+import Container from "./Container.astro";
+import ButtonLink from "./ButtonLink.astro";
+
+interface Cta {
+  href: string;
+  label: string;
+  external?: boolean;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  primaryCta?: Cta;
+  secondaryCta?: Cta;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+} = Astro.props;
+
+const hasAside = Astro.slots.has("aside");
+---
+
+<section class="section-shell pt-16">
+  <Container>
+    <div class:list={["grid gap-10 lg:items-end", hasAside ? "lg:grid-cols-[1.15fr_0.85fr]" : "max-w-4xl"]}>
+      <div class="space-y-6 fade-up">
+        <span class="eyebrow">{eyebrow}</span>
+        <div class="space-y-5">
+          <h1 class="max-w-4xl text-4xl font-semibold sm:text-5xl lg:text-6xl">{title}</h1>
+          <p class="max-w-3xl text-lg leading-8 text-slate-600">{description}</p>
+        </div>
+        {(primaryCta || secondaryCta) && (
+          <div class="flex flex-col gap-3 sm:flex-row">
+            {primaryCta && (
+              <ButtonLink
+                href={primaryCta.href}
+                label={primaryCta.label}
+                external={primaryCta.external}
+              />
+            )}
+            {secondaryCta && (
+              <ButtonLink
+                href={secondaryCta.href}
+                label={secondaryCta.label}
+                variant="secondary"
+                external={secondaryCta.external}
+              />
+            )}
+          </div>
+        )}
+      </div>
+
+      {hasAside && (
+        <div class="fade-up" style="--delay: 120ms;">
+          <slot name="aside" />
+        </div>
+      )}
+    </div>
+  </Container>
+</section>

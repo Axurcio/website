@@ -1,0 +1,41 @@
+---
+interface Props {
+  service: {
+    slug: string;
+    name: string;
+    summary: string;
+    outcomes: string[];
+  };
+}
+
+const { service } = Astro.props;
+---
+
+<article class="surface-panel fade-up h-full p-8" style="--delay: 80ms;">
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <span class="inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+        Service
+      </span>
+      <h3 class="text-2xl font-semibold">{service.name}</h3>
+      <p class="text-base leading-7 text-slate-600">{service.summary}</p>
+    </div>
+
+    <ul class="space-y-3">
+      {service.outcomes.slice(0, 2).map((outcome) => (
+        <li class="flex gap-3 text-sm leading-6 text-slate-600">
+          <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+          <span>{outcome}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href={`/services#${service.slug}`}
+      class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800"
+    >
+      See service detail
+      <span aria-hidden="true">-&gt;</span>
+    </a>
+  </div>
+</article>

@@ -1,0 +1,86 @@
+---
+import Container from "./Container.astro";
+import ButtonLink from "./ButtonLink.astro";
+import { navItems, site } from "../data/site";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
+  <Container class="py-4">
+    <div class="flex items-center justify-between gap-6">
+      <a href="/" class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-soft">
+          AX
+        </span>
+        <div class="space-y-0.5">
+          <span class="block font-display text-lg font-semibold text-slate-950">Axurcio</span>
+          <span class="block text-xs uppercase tracking-[0.22em] text-slate-500">AI Consultancy</span>
+        </div>
+      </a>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 md:hidden"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 5h14v2H3V5Zm0 4h14v2H3V9Zm0 4h14v2H3v-2Z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+
+      <nav
+        id="nav-menu"
+        class="absolute left-6 right-6 top-full hidden rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-soft md:static md:flex md:flex-1 md:items-center md:justify-between md:border-0 md:bg-transparent md:p-0 md:shadow-none"
+      >
+        <ul class="flex flex-col gap-4 md:flex-row md:items-center md:gap-2">
+          {navItems.map((item) => {
+            const isActive = item.href === "/"
+              ? currentPath === "/"
+              : currentPath.startsWith(item.href);
+
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    "inline-flex rounded-full px-4 py-2 text-sm font-semibold transition",
+                    isActive
+                      ? "bg-brand-50 text-brand-700"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-950",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div class="mt-5 md:mt-0">
+          <ButtonLink href={site.calendlyUrl} label="Book a Consultation" external />
+        </div>
+      </nav>
+    </div>
+  </Container>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("hidden");
+    });
+  }
+</script>

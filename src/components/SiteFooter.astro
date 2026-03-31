@@ -1,0 +1,67 @@
+---
+import Container from "./Container.astro";
+import { navItems, services, site } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 bg-slate-950 pb-12 pt-16 text-white">
+  <Container class="space-y-12">
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div class="space-y-5">
+        <a href="/" class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-slate-950">
+            AX
+          </span>
+          <div class="space-y-0.5">
+            <span class="block font-display text-lg font-semibold text-white">Axurcio</span>
+            <span class="block text-xs uppercase tracking-[0.22em] text-slate-400">Operational intelligence at scale</span>
+          </div>
+        </a>
+        <p class="max-w-xl text-base leading-8 text-slate-300">
+          Axurcio helps enterprises and government teams move from manual processes to autonomous
+          systems through AI solutions, agentic workflows, and workforce transformation.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Explore</h3>
+        <ul class="space-y-3">
+          {navItems.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-slate-300 hover:text-white">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Services</h3>
+        <ul class="space-y-3">
+          {services.map((service) => (
+            <li>
+              <a href={`/services#${service.slug}`} class="text-sm text-slate-300 hover:text-white">
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="space-y-3 pt-3">
+          <a href={`mailto:${site.email}`} class="block text-sm text-slate-300 hover:text-white">
+            {site.email}
+          </a>
+          <a href={site.linkedInUrl} target="_blank" rel="noreferrer" class="block text-sm text-slate-300 hover:text-white">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      <p>AI solutions, agentic workflows, and transformation delivery for complex organisations.</p>
+    </div>
+  </Container>
+</footer>

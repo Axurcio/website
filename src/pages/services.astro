@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHero from "../components/PageHero.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import { services, site } from "../data/site";
+---
+
+<Layout
+  title="Services"
+  description="Explore Axurcio's AI solutions, agentic workflow design, process automation, and workforce transformation services."
+  path="/services"
+>
+  <main>
+    <PageHero
+      eyebrow="Services"
+      title="AI services designed around operational outcomes, not vague innovation theatre."
+      description="Axurcio helps organisations design, deliver, and operationalise AI solutions that reduce friction, improve throughput, and create lasting capability. Our work spans strategy, architecture, delivery, and the organisational changes needed to scale."
+      primaryCta={{ href: "/contact", label: "Discuss Your Initiative" }}
+      secondaryCta={{ href: site.calendlyUrl, label: "Book a Consultation", external: true }}
+    >
+      <div slot="aside" class="surface-panel space-y-5 p-8">
+        <p class="text-sm uppercase tracking-[0.22em] text-slate-500">What you can expect</p>
+        <ul class="space-y-4">
+          <li class="flex gap-3 text-sm leading-7 text-slate-600">
+            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            Clear business outcomes tied to each use case
+          </li>
+          <li class="flex gap-3 text-sm leading-7 text-slate-600">
+            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            Delivery patterns suited to enterprise systems and governance
+          </li>
+          <li class="flex gap-3 text-sm leading-7 text-slate-600">
+            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            Practical implementation guidance from pilot through to scale
+          </li>
+        </ul>
+      </div>
+    </PageHero>
+
+    <section class="section-shell">
+      <Container class="space-y-8">
+        <SectionIntro
+          eyebrow="Service Areas"
+          title="Four core areas of support for leaders moving faster with intelligent automation."
+          description="Each service line is designed to help organisations move from fragmented effort to integrated capability. We can support focused initiatives or broader multi-stream transformation programs."
+        />
+
+        <div class="space-y-6">
+          {services.map((service, index) => (
+            <article
+              id={service.slug}
+              class:list={[
+                "overflow-hidden rounded-[2rem] border p-8 sm:p-10",
+                index % 2 === 0
+                  ? "border-white/70 bg-white/85 shadow-soft"
+                  : "border-white/10 bg-slate-950 text-white shadow-glow",
+              ]}
+            >
+              <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                <div class="space-y-5">
+                  <span
+                    class:list={[
+                      "inline-flex rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em]",
+                      index % 2 === 0
+                        ? "bg-brand-50 text-brand-700"
+                        : "border border-white/10 bg-white/5 text-accent-200",
+                    ]}
+                  >
+                    {service.name}
+                  </span>
+                  <h2 class:list={["text-3xl font-semibold sm:text-4xl", index % 2 !== 0 && "text-white"]}>
+                    {service.summary}
+                  </h2>
+                  <p class:list={["text-base leading-8", index % 2 === 0 ? "text-slate-600" : "text-slate-300"]}>
+                    {service.description}
+                  </p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                  <div
+                    class:list={[
+                      "rounded-[1.75rem] border p-6",
+                      index % 2 === 0
+                        ? "border-slate-200 bg-slate-50"
+                        : "border-white/10 bg-white/5",
+                    ]}
+                  >
+                    <h3 class:list={["text-lg font-semibold", index % 2 !== 0 && "text-white"]}>
+                      Business outcomes
+                    </h3>
+                    <ul class="mt-4 space-y-3">
+                      {service.outcomes.map((outcome) => (
+                        <li class:list={["flex gap-3 text-sm leading-7", index % 2 === 0 ? "text-slate-600" : "text-slate-300"]}>
+                          <span class="mt-2 h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                          <span>{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div
+                    class:list={[
+                      "rounded-[1.75rem] border p-6",
+                      index % 2 === 0
+                        ? "border-slate-200 bg-slate-50"
+                        : "border-white/10 bg-white/5",
+                    ]}
+                  >
+                    <h3 class:list={["text-lg font-semibold", index % 2 !== 0 && "text-white"]}>
+                      Example implementations
+                    </h3>
+                    <ul class="mt-4 space-y-3">
+                      {service.examples.map((example) => (
+                        <li class:list={["flex gap-3 text-sm leading-7", index % 2 === 0 ? "text-slate-600" : "text-slate-300"]}>
+                          <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+                          <span>{example}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell pt-8">
+      <Container>
+        <div class="dark-panel grid gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div class="space-y-4">
+            <span class="eyebrow border-white/10 bg-white/5 text-accent-200 before:bg-accent-300">
+              Ready To Start
+            </span>
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">
+              Need to prioritise the right service area for your organisation?
+            </h2>
+            <p class="max-w-2xl text-base leading-8 text-slate-300">
+              We can help identify the workflow, service line, and delivery path most likely to
+              create value first.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <ButtonLink href="/solutions" label="View Solutions" />
+            <ButtonLink href="/contact" label="Contact Axurcio" variant="secondary" />
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>

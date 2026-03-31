@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import PageHero from "../../components/PageHero.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+import InsightCard from "../../components/InsightCard.astro";
+import ButtonLink from "../../components/ButtonLink.astro";
+import { insights, site } from "../../data/site";
+
+const [featuredInsight, ...otherInsights] = insights;
+---
+
+<Layout
+  title="Insights"
+  description="Thought leadership, practical guidance, and blog-ready insight content from Axurcio on AI transformation and intelligent automation."
+  path="/insights"
+>
+  <main>
+    <PageHero
+      eyebrow="Insights"
+      title="Clear thinking for leaders building AI-enabled organisations."
+      description="Axurcio's insights section is designed to support ongoing thought leadership: practical articles, transformation guidance, and executive-friendly perspectives on AI systems, agentic workflows, and operational change."
+      primaryCta={{ href: "/contact", label: "Talk to Axurcio" }}
+      secondaryCta={{ href: site.calendlyUrl, label: "Book a Consultation", external: true }}
+    >
+      <div slot="aside" class="surface-panel space-y-4 p-8">
+        <p class="text-sm uppercase tracking-[0.22em] text-slate-500">Publishing themes</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-full bg-brand-50 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+            AI strategy
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+            Agentic workflows
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+            Workforce transformation
+          </span>
+          <span class="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+            Automation
+          </span>
+        </div>
+      </div>
+    </PageHero>
+
+    <section class="section-shell">
+      <Container class="space-y-8">
+        <SectionIntro
+          eyebrow="Featured Insight"
+          title={featuredInsight.title}
+          description={featuredInsight.summary}
+        />
+
+        <article class="surface-panel overflow-hidden p-8 sm:p-10">
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div class="space-y-5">
+              <div class="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                <span class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">{featuredInsight.category}</span>
+                <span>{featuredInsight.publishedAt}</span>
+                <span>{featuredInsight.readTime}</span>
+              </div>
+              <p class="max-w-3xl text-base leading-8 text-slate-600">
+                {featuredInsight.body[0].paragraphs[0]}
+              </p>
+            </div>
+            <ButtonLink href={`/insights/${featuredInsight.slug}`} label="Read Featured Insight" />
+          </div>
+        </article>
+      </Container>
+    </section>
+
+    <section class="section-shell pt-8">
+      <Container class="space-y-8">
+        <SectionIntro
+          eyebrow="More Articles"
+          title="A blog-ready structure for ongoing publishing."
+          description="The insights hub supports category-based cards, featured content, and article detail pages so Axurcio can keep expanding its thought leadership library."
+        />
+        <div class="grid gap-6 lg:grid-cols-3">
+          {otherInsights.map((insight) => (
+            <InsightCard insight={insight} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>

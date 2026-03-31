@@ -1,33 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  .font-outline {
-    -webkit-text-stroke: 2.5px black;
-    background-color: transparent;
+  :root {
+    color-scheme: light;
   }
-  .font-outline-sm {
-    -webkit-text-stroke: 1.2px black;
-    background-color: transparent;
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 font-sans text-slate-950 antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 26%),
+      radial-gradient(circle at top right, rgba(17, 114, 255, 0.16), transparent 34%),
+      linear-gradient(180deg, #f8fbff 0%, #edf4fb 44%, #ffffff 100%);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight text-slate-950;
+  }
+
+  p {
+    @apply text-slate-600;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    @apply bg-brand-500/20 text-slate-950;
   }
 }
 
-/* custom scrollbar */
+@layer components {
+  .surface-panel {
+    @apply rounded-[2rem] border border-white/70 bg-white/85 shadow-soft backdrop-blur;
+  }
+
+  .dark-panel {
+    @apply rounded-[2rem] border border-white/10 bg-slate-950 text-white shadow-glow;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-700;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-2 w-2 rounded-full bg-accent-400;
+  }
+
+  .section-shell {
+    @apply py-20 sm:py-24;
+  }
+
+  .grid-outline {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .fade-up {
+    animation: rise 0.7s ease-out both;
+    animation-delay: var(--delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgba(226, 232, 240, 0.65);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgba(15, 23, 42, 0.75);
 }
-

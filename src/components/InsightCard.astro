@@ -1,0 +1,37 @@
+---
+interface Props {
+  insight: {
+    slug: string;
+    category: string;
+    title: string;
+    summary: string;
+    readTime: string;
+    publishedAt: string;
+  };
+}
+
+const { insight } = Astro.props;
+---
+
+<article class="surface-panel fade-up h-full p-8" style="--delay: 160ms;">
+  <div class="flex h-full flex-col gap-5">
+    <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+      <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-600">{insight.category}</span>
+      <span>{insight.publishedAt}</span>
+      <span>{insight.readTime}</span>
+    </div>
+
+    <div class="space-y-3">
+      <h3 class="text-2xl font-semibold">{insight.title}</h3>
+      <p class="text-base leading-7 text-slate-600">{insight.summary}</p>
+    </div>
+
+    <a
+      href={`/insights/${insight.slug}`}
+      class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800"
+    >
+      Read insight
+      <span aria-hidden="true">-&gt;</span>
+    </a>
+  </div>
+</article>

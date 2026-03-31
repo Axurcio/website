@@ -1,19 +1,293 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Services from "../components/Services.astro"
-import Expertise from '../components/Expertise.astro';
-import Team from '../components/Team.astro';
-import Case from '../components/Case.astro';
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import WorkflowDiagram from "../components/WorkflowDiagram.astro";
+import UseCaseCard from "../components/UseCaseCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import InsightCard from "../components/InsightCard.astro";
+import {
+  capabilities,
+  differentiators,
+  heroMetrics,
+  insights,
+  services,
+  site,
+  testimonials,
+  useCases,
+  workflowStages,
+} from "../data/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  serviceType: services.map((service) => service.name),
+  areaServed: ["Australia", "Global"],
+};
 ---
 
-<Layout title="Axurcio">
-	<main class="space-y-20">
-		<Hero/>
-		<Services/>
-		<Case/>
-		<Team/>
-		<Expertise/>
+<Layout
+  title="AI That Works, Not Just Experiments"
+  description="Axurcio designs enterprise AI systems, agentic workflows, and operational transformation programs that help organisations move faster with intelligent automation."
+  path="/"
+  schema={schema}
+>
+  <main>
+    <section class="section-shell relative overflow-hidden pb-16 pt-16">
+      <Container>
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div class="space-y-8 fade-up">
+            <span class="eyebrow">Premium AI Consultancy</span>
+            <div class="space-y-6">
+              <h1 class="max-w-4xl text-5xl font-semibold sm:text-6xl lg:text-7xl">
+                From manual processes to autonomous systems.
+              </h1>
+              <p class="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+                Axurcio helps enterprises, government teams, and transformation leaders deploy AI
+                that improves operations, accelerates decision-making, and scales workforce
+                performance with confidence.
+              </p>
+            </div>
 
-	</main>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={site.calendlyUrl} label="Book a Consultation" external />
+              <ButtonLink href="/services" label="Explore Services" variant="secondary" />
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              {heroMetrics.map((metric, index) => (
+                <div class="surface-panel fade-up p-5" style={`--delay:${index * 90}ms;`}>
+                  <p class="text-2xl font-semibold text-slate-950">{metric.value}</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-600">{metric.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <p class="text-sm font-medium uppercase tracking-[0.22em] text-slate-500">
+              Trusted partner for enterprise AI, automation, and workforce transformation
+            </p>
+          </div>
+
+          <div class="fade-up" style="--delay: 120ms;">
+            <div class="dark-panel relative overflow-hidden p-8 sm:p-10">
+              <div class="absolute inset-0 grid-outline opacity-20"></div>
+              <div class="relative space-y-8">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.22em] text-slate-400">
+                      Operational intelligence at scale
+                    </p>
+                    <h2 class="mt-3 text-3xl font-semibold text-white">
+                      AI systems built for action
+                    </h2>
+                  </div>
+                  <div class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+                    Enterprise-ready
+                  </div>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                    <div class="flex items-center justify-between gap-4">
+                      <div>
+                        <p class="text-sm font-semibold text-white">Sense</p>
+                        <p class="mt-1 text-sm text-slate-300">
+                          Capture requests, documents, telemetry, and workflow signals.
+                        </p>
+                      </div>
+                      <span class="rounded-full bg-accent-400/20 px-3 py-1 text-xs font-semibold text-accent-200">
+                        Intake
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 sm:ml-10">
+                    <div class="flex items-center justify-between gap-4">
+                      <div>
+                        <p class="text-sm font-semibold text-white">Reason</p>
+                        <p class="mt-1 text-sm text-slate-300">
+                          Apply business rules, retrieve context, and determine next-best action.
+                        </p>
+                      </div>
+                      <span class="rounded-full bg-brand-400/20 px-3 py-1 text-xs font-semibold text-brand-100">
+                        Decisioning
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                    <div class="flex items-center justify-between gap-4">
+                      <div>
+                        <p class="text-sm font-semibold text-white">Act</p>
+                        <p class="mt-1 text-sm text-slate-300">
+                          Trigger workflows, generate outputs, route approvals, and notify teams.
+                        </p>
+                      </div>
+                      <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-xs font-semibold text-emerald-100">
+                        Orchestration
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                    <p class="text-sm uppercase tracking-[0.18em] text-slate-400">Use cases</p>
+                    <p class="mt-3 text-lg font-semibold text-white">
+                      Copilots, autonomous workflows, case intelligence, and decision automation.
+                    </p>
+                  </div>
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                    <p class="text-sm uppercase tracking-[0.18em] text-slate-400">Delivery</p>
+                    <p class="mt-3 text-lg font-semibold text-white">
+                      Strategy, architecture, implementation, and workforce enablement.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Services"
+          title="Advisory and delivery for AI transformation programs that need to perform."
+          description="We help leaders move faster with intelligent automation, while keeping delivery grounded in architecture, governance, and operating realities."
+        />
+        <div class="grid gap-6 lg:grid-cols-2">
+          {services.map((service) => (
+            <ServiceCard service={service} />
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Capabilities"
+          title="The capabilities enterprises need to turn AI into a durable operating advantage."
+          description="Axurcio brings together AI solution design, agentic workflow orchestration, process redesign, and workforce transformation so initiatives can move from exploration to execution."
+        />
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {capabilities.map((capability, index) => (
+            <article class="surface-panel fade-up p-8" style={`--delay:${index * 80}ms;`}>
+              <h3 class="text-2xl font-semibold">{capability.title}</h3>
+              <p class="mt-4 text-base leading-7 text-slate-600">{capability.description}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Agentic Workflows"
+          title="A clear model for how autonomous systems operate across real business workflows."
+          description="We design agentic systems with context retrieval, decision logic, approvals, and continuous improvement so autonomy stays useful, observable, and controlled."
+        />
+        <WorkflowDiagram stages={workflowStages} />
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Use Cases"
+          title="Practical AI applications for operational bottlenecks, service delivery, and decision support."
+          description="The strongest AI initiatives are tied to an operating problem leaders already feel. These example use cases show where Axurcio typically creates leverage."
+        />
+        <div class="grid gap-6 lg:grid-cols-2">
+          {useCases.map((useCase) => (
+            <UseCaseCard useCase={useCase} />
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Why Axurcio"
+          title="An AI transformation partner built for clarity, credibility, and delivery."
+          description="Enterprise AI work succeeds when strategy, systems, workflows, and people are designed together. That is the lens Axurcio brings to every engagement."
+        />
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {differentiators.map((item, index) => (
+            <article class="surface-panel fade-up p-8" style={`--delay:${index * 80}ms;`}>
+              <h3 class="text-xl font-semibold">{item.title}</h3>
+              <p class="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Client Perspective"
+          title="Executive-friendly delivery that translates AI ambition into operational progress."
+          description="Representative feedback aligned to the types of advisory and delivery outcomes Axurcio is designed to support."
+        />
+        <div class="grid gap-6 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard testimonial={testimonial} />
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell">
+      <Container class="space-y-10">
+        <SectionIntro
+          eyebrow="Insights"
+          title="Simple, practical thinking for leaders shaping AI-enabled organisations."
+          description="A blog-ready insight structure is included so the site can support ongoing thought leadership, executive guidance, and case-driven content."
+        />
+        <div class="grid gap-6 lg:grid-cols-3">
+          {insights.map((insight) => (
+            <InsightCard insight={insight} />
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <section class="section-shell pt-8">
+      <Container>
+        <div class="dark-panel overflow-hidden p-8 sm:p-10 lg:p-12">
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div class="space-y-5">
+              <span class="eyebrow border-white/10 bg-white/5 text-accent-200 before:bg-accent-300">
+                Final CTA
+              </span>
+              <h2 class="max-w-3xl text-3xl font-semibold text-white sm:text-4xl">
+                Move faster with intelligent automation that fits how your organisation actually
+                operates.
+              </h2>
+              <p class="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                Whether you are shaping an AI roadmap, proving a new use case, or redesigning an
+                operational workflow, Axurcio can help turn the opportunity into a controlled,
+                high-value delivery path.
+              </p>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <ButtonLink href={site.calendlyUrl} label="Book a Consultation" external />
+              <ButtonLink href="/contact" label="Contact Axurcio" variant="secondary" />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
 </Layout>
