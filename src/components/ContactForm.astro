@@ -3,13 +3,14 @@ import { site } from "../data/site";
 ---
 
 <form
-  action={`https://formsubmit.co/${site.email}`}
+  action={site.formSubmitUrl}
   method="POST"
   class="surface-panel space-y-6 p-8 sm:p-10"
 >
   <input type="hidden" name="_subject" value="New Axurcio consultation request" />
   <input type="hidden" name="_captcha" value="false" />
   <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_url" value="https://axurcio.com/contact" />
 
   <div class="space-y-2">
     <h2 class="text-2xl font-semibold">Tell us about your initiative</h2>
