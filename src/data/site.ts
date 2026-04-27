@@ -4,7 +4,7 @@ export const site = {
   description:
     "Axurcio helps enterprises and government teams move from manual processes to autonomous systems through AI solutions, agentic workflows, and operational transformation.",
   url: "https://axurcio.com",
-  email: "hello@axurcio.com",
+  email: "contact+website@axurcio.com",
   linkedInUrl: "https://www.linkedin.com/company/axurcio/",
   calendlyUrl: "https://calendly.com/axurcio/chat-with-chris-axurcio",
 };
