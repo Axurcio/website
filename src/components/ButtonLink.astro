@@ -17,9 +17,9 @@ const {
 
 const variants = {
   primary:
-    "bg-slate-950 text-white shadow-soft hover:-translate-y-0.5 hover:bg-brand-600",
+    "border border-accent-300 bg-accent-400 text-ink shadow-soft hover:-translate-y-0.5 hover:border-accent-200 hover:bg-accent-300",
   secondary:
-    "border border-slate-300 bg-white text-slate-950 hover:border-brand-300 hover:text-brand-700",
+    "border border-slate-300 bg-white text-slate-950 hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-700",
   ghost: "text-slate-700 hover:text-slate-950",
 };
 ---
@@ -29,7 +29,7 @@ const variants = {
   target={external ? "_blank" : undefined}
   rel={external ? "noreferrer" : undefined}
   class:list={[
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200",
+    "inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-extrabold transition duration-200",
     variants[variant],
     className,
   ]}

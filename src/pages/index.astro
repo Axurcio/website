@@ -38,14 +38,14 @@ const schema = {
   schema={schema}
 >
   <main>
-    <section class="section-shell relative overflow-hidden pb-16 pt-16">
+    <section class="relative overflow-hidden border-b border-slate-200/70 py-14 sm:py-20">
       <Container>
-        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div class="grid gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div class="space-y-8 fade-up">
-            <span class="eyebrow">Premium AI Consultancy</span>
+            <span class="eyebrow">Enterprise AI Delivery</span>
             <div class="space-y-6">
-              <h1 class="max-w-4xl text-5xl font-semibold sm:text-6xl lg:text-7xl">
-                From manual processes to autonomous systems.
+              <h1 class="max-w-5xl text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
+                AI operating systems for work that cannot stay manual.
               </h1>
               <p class="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
                 Axurcio helps enterprises, government teams, and transformation leaders deploy AI
@@ -59,40 +59,45 @@ const schema = {
               <ButtonLink href="/services" label="Explore Services" variant="secondary" />
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-3">
+            <div class="grid gap-4 border-y border-slate-200 py-5 sm:grid-cols-3">
               {heroMetrics.map((metric, index) => (
-                <div class="surface-panel fade-up p-5" style={`--delay:${index * 90}ms;`}>
+                <div class="fade-up" style={`--delay:${index * 90}ms;`}>
                   <p class="text-2xl font-semibold text-slate-950">{metric.value}</p>
                   <p class="mt-2 text-sm leading-6 text-slate-600">{metric.label}</p>
                 </div>
               ))}
             </div>
 
-            <p class="text-sm font-medium uppercase tracking-[0.22em] text-slate-500">
+            <p class="max-w-xl text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">
               Trusted partner for enterprise AI, automation, and workforce transformation
             </p>
           </div>
 
           <div class="fade-up" style="--delay: 120ms;">
-            <div class="dark-panel relative overflow-hidden p-8 sm:p-10">
-              <div class="absolute inset-0 grid-outline opacity-20"></div>
-              <div class="relative space-y-8">
+            <div class="dark-panel relative overflow-hidden p-6 sm:p-8">
+              <div class="absolute inset-0 grid-outline opacity-40"></div>
+              <div class="relative space-y-6">
                 <div class="flex items-center justify-between gap-4">
                   <div>
-                    <p class="text-sm uppercase tracking-[0.22em] text-slate-400">
-                      Operational intelligence at scale
-                    </p>
-                    <h2 class="mt-3 text-3xl font-semibold text-white">
-                      AI systems built for action
-                    </h2>
+                    <p class="panel-label">Operational intelligence</p>
+                    <h2 class="mt-3 text-3xl font-semibold text-white">Built for action</h2>
                   </div>
-                  <div class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+                  <div class="rounded-md border border-accent-400/30 bg-accent-400/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
                     Enterprise-ready
                   </div>
                 </div>
 
-                <div class="space-y-4">
-                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                <div class="rounded-lg border border-white/10 bg-white/[0.04] p-4">
+                  <img
+                    src="/Hero.svg"
+                    alt="Axurcio AI workflow illustration"
+                    class="mx-auto max-h-64 w-full object-contain"
+                    loading="eager"
+                  />
+                </div>
+
+                <div class="space-y-3">
+                  <div class="rounded-lg border border-white/10 bg-white/[0.04] p-4">
                     <div class="flex items-center justify-between gap-4">
                       <div>
                         <p class="text-sm font-semibold text-white">Sense</p>
@@ -100,13 +105,13 @@ const schema = {
                           Capture requests, documents, telemetry, and workflow signals.
                         </p>
                       </div>
-                      <span class="rounded-full bg-accent-400/20 px-3 py-1 text-xs font-semibold text-accent-200">
+                      <span class="rounded-md bg-accent-400/20 px-3 py-1 text-xs font-semibold text-accent-200">
                         Intake
                       </span>
                     </div>
                   </div>
 
-                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 sm:ml-10">
+                  <div class="rounded-lg border border-white/10 bg-white/[0.04] p-4 sm:ml-8">
                     <div class="flex items-center justify-between gap-4">
                       <div>
                         <p class="text-sm font-semibold text-white">Reason</p>
@@ -114,13 +119,13 @@ const schema = {
                           Apply business rules, retrieve context, and determine next-best action.
                         </p>
                       </div>
-                      <span class="rounded-full bg-brand-400/20 px-3 py-1 text-xs font-semibold text-brand-100">
+                      <span class="rounded-md bg-brand-400/20 px-3 py-1 text-xs font-semibold text-brand-100">
                         Decisioning
                       </span>
                     </div>
                   </div>
 
-                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                  <div class="rounded-lg border border-white/10 bg-white/[0.04] p-4">
                     <div class="flex items-center justify-between gap-4">
                       <div>
                         <p class="text-sm font-semibold text-white">Act</p>
@@ -128,7 +133,7 @@ const schema = {
                           Trigger workflows, generate outputs, route approvals, and notify teams.
                         </p>
                       </div>
-                      <span class="rounded-full bg-emerald-400/20 px-3 py-1 text-xs font-semibold text-emerald-100">
+                      <span class="rounded-md bg-emerald-400/20 px-3 py-1 text-xs font-semibold text-emerald-100">
                         Orchestration
                       </span>
                     </div>
@@ -136,14 +141,14 @@ const schema = {
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2">
-                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
-                    <p class="text-sm uppercase tracking-[0.18em] text-slate-400">Use cases</p>
+                  <div class="border-t border-white/10 pt-4">
+                    <p class="panel-label">Use cases</p>
                     <p class="mt-3 text-lg font-semibold text-white">
                       Copilots, autonomous workflows, case intelligence, and decision automation.
                     </p>
                   </div>
-                  <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
-                    <p class="text-sm uppercase tracking-[0.18em] text-slate-400">Delivery</p>
+                  <div class="border-t border-white/10 pt-4">
+                    <p class="panel-label">Delivery</p>
                     <p class="mt-3 text-lg font-semibold text-white">
                       Strategy, architecture, implementation, and workforce enablement.
                     </p>
@@ -269,7 +274,7 @@ const schema = {
           <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div class="space-y-5">
               <span class="eyebrow border-white/10 bg-white/5 text-accent-200 before:bg-accent-300">
-                Final CTA
+                Next Move
               </span>
               <h2 class="max-w-3xl text-3xl font-semibold text-white sm:text-4xl">
                 Move faster with intelligent automation that fits how your organisation actually

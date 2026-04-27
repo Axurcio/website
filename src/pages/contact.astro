@@ -24,7 +24,7 @@ import { contactHighlights, faqs, site } from "../data/site";
         <ul class="space-y-4">
           {contactHighlights.map((highlight) => (
             <li class="flex gap-3 text-sm leading-7 text-slate-600">
-              <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+              <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-accent-400"></span>
               {highlight}
             </li>
           ))}
@@ -51,14 +51,14 @@ import { contactHighlights, faqs, site } from "../data/site";
                   href={site.calendlyUrl}
                   target="_blank"
                   rel="noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+                  class="inline-flex items-center justify-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-extrabold text-slate-950 transition hover:bg-slate-100"
                 >
                   Book consultation
                   <span aria-hidden="true">-&gt;</span>
                 </a>
                 <a
                   href={`mailto:${site.email}`}
-                  class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5"
+                  class="inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-5 py-3 text-sm font-extrabold text-white transition hover:border-white/30 hover:bg-white/5"
                 >
                   Email Axurcio
                 </a>
@@ -71,7 +71,7 @@ import { contactHighlights, faqs, site } from "../data/site";
               <p class="text-sm uppercase tracking-[0.22em] text-slate-500">FAQ</p>
               <div class="space-y-4">
                 {faqs.map((faq) => (
-                  <details class="group rounded-[1.5rem] border border-slate-200 bg-white p-5 open:border-brand-200 open:bg-brand-50/40">
+                  <details class="group rounded-lg border border-slate-200 bg-white p-5 open:border-brand-200 open:bg-brand-50/40">
                     <summary class="cursor-pointer list-none text-base font-semibold text-slate-950">
                       {faq.question}
                     </summary>

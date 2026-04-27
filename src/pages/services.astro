@@ -24,15 +24,15 @@ import { services, site } from "../data/site";
         <p class="text-sm uppercase tracking-[0.22em] text-slate-500">What you can expect</p>
         <ul class="space-y-4">
           <li class="flex gap-3 text-sm leading-7 text-slate-600">
-            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-accent-400"></span>
             Clear business outcomes tied to each use case
           </li>
           <li class="flex gap-3 text-sm leading-7 text-slate-600">
-            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-accent-400"></span>
             Delivery patterns suited to enterprise systems and governance
           </li>
           <li class="flex gap-3 text-sm leading-7 text-slate-600">
-            <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+            <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-accent-400"></span>
             Practical implementation guidance from pilot through to scale
           </li>
         </ul>
@@ -52,17 +52,17 @@ import { services, site } from "../data/site";
             <article
               id={service.slug}
               class:list={[
-                "overflow-hidden rounded-[2rem] border p-8 sm:p-10",
+                "overflow-hidden rounded-lg border p-8 sm:p-10",
                 index % 2 === 0
                   ? "border-white/70 bg-white/85 shadow-soft"
-                  : "border-white/10 bg-slate-950 text-white shadow-glow",
+                  : "border-white/10 bg-ink text-white shadow-glow",
               ]}
             >
               <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div class="space-y-5">
                   <span
                     class:list={[
-                      "inline-flex rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em]",
+                      "inline-flex rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em]",
                       index % 2 === 0
                         ? "bg-brand-50 text-brand-700"
                         : "border border-white/10 bg-white/5 text-accent-200",
@@ -81,7 +81,7 @@ import { services, site } from "../data/site";
                 <div class="grid gap-6 md:grid-cols-2">
                   <div
                     class:list={[
-                      "rounded-[1.75rem] border p-6",
+                      "rounded-lg border p-6",
                       index % 2 === 0
                         ? "border-slate-200 bg-slate-50"
                         : "border-white/10 bg-white/5",
@@ -93,7 +93,7 @@ import { services, site } from "../data/site";
                     <ul class="mt-4 space-y-3">
                       {service.outcomes.map((outcome) => (
                         <li class:list={["flex gap-3 text-sm leading-7", index % 2 === 0 ? "text-slate-600" : "text-slate-300"]}>
-                          <span class="mt-2 h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                          <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-brand-500"></span>
                           <span>{outcome}</span>
                         </li>
                       ))}
@@ -102,7 +102,7 @@ import { services, site } from "../data/site";
 
                   <div
                     class:list={[
-                      "rounded-[1.75rem] border p-6",
+                      "rounded-lg border p-6",
                       index % 2 === 0
                         ? "border-slate-200 bg-slate-50"
                         : "border-white/10 bg-white/5",
@@ -114,7 +114,7 @@ import { services, site } from "../data/site";
                     <ul class="mt-4 space-y-3">
                       {service.examples.map((example) => (
                         <li class:list={["flex gap-3 text-sm leading-7", index % 2 === 0 ? "text-slate-600" : "text-slate-300"]}>
-                          <span class="mt-2 h-2.5 w-2.5 rounded-full bg-accent-400"></span>
+                          <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-sm bg-accent-400"></span>
                           <span>{example}</span>
                         </li>
                       ))}

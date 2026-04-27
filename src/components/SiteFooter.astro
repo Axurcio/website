@@ -5,13 +5,14 @@ import { navItems, services, site } from "../data/site";
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-24 bg-slate-950 pb-12 pt-16 text-white">
+<footer class="mt-20 border-t border-white/10 bg-ink pb-10 pt-14 text-white">
   <Container class="space-y-12">
-    <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_0.7fr_0.9fr]">
       <div class="space-y-5">
         <a href="/" class="flex items-center gap-3">
-          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-slate-950">
-            AX
+          <span class="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-lg bg-white text-sm font-black text-ink">
+            <span class="absolute inset-x-0 bottom-0 h-1.5 bg-accent-400"></span>
+            <span class="relative">AX</span>
           </span>
           <div class="space-y-0.5">
             <span class="block font-display text-lg font-semibold text-white">Axurcio</span>
@@ -25,7 +26,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="space-y-4">
-        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Explore</h3>
+        <h3 class="panel-label">Explore</h3>
         <ul class="space-y-3">
           {navItems.map((item) => (
             <li>
@@ -38,7 +39,7 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="space-y-4">
-        <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Services</h3>
+        <h3 class="panel-label">Services</h3>
         <ul class="space-y-3">
           {services.map((service) => (
             <li>
@@ -54,6 +55,9 @@ const year = new Date().getFullYear();
           </a>
           <a href={site.linkedInUrl} target="_blank" rel="noreferrer" class="block text-sm text-slate-300 hover:text-white">
             LinkedIn
+          </a>
+          <a href="/terms.html" class="block text-sm text-slate-300 hover:text-white">
+            Terms
           </a>
         </div>
       </div>

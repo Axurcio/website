@@ -14,11 +14,12 @@
   }
 
   body {
-    @apply bg-slate-950 font-sans text-slate-950 antialiased;
+    @apply bg-surface-50 font-sans text-slate-950 antialiased;
     background-image:
-      radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 26%),
-      radial-gradient(circle at top right, rgba(17, 114, 255, 0.16), transparent 34%),
-      linear-gradient(180deg, #f8fbff 0%, #edf4fb 44%, #ffffff 100%);
+      linear-gradient(90deg, rgba(6, 20, 18, 0.045) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(185, 255, 102, 0.11) 0%, rgba(255, 255, 255, 0) 34%),
+      linear-gradient(180deg, #f7f9f6 0%, #eef4f1 46%, #ffffff 100%);
+    background-size: 72px 72px, 100% 100%, 100% 100%;
     min-height: 100vh;
   }
 
@@ -46,31 +47,46 @@
 
 @layer components {
   .surface-panel {
-    @apply rounded-[2rem] border border-white/70 bg-white/85 shadow-soft backdrop-blur;
+    @apply rounded-lg border border-slate-200/80 bg-white/90 shadow-soft backdrop-blur;
   }
 
   .dark-panel {
-    @apply rounded-[2rem] border border-white/10 bg-slate-950 text-white shadow-glow;
+    @apply rounded-lg border border-white/10 bg-ink text-white shadow-glow;
+    background-image:
+      linear-gradient(135deg, rgba(185, 255, 102, 0.1), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-700;
+    @apply inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 shadow-sm;
   }
 
   .eyebrow::before {
     content: "";
-    @apply h-2 w-2 rounded-full bg-accent-400;
+    @apply h-2 w-2 rounded-sm bg-accent-400;
   }
 
   .section-shell {
-    @apply py-20 sm:py-24;
+    @apply py-16 sm:py-20;
   }
 
   .grid-outline {
     background-image:
-      linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 32px 32px;
+  }
+
+  .signal-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-accent-400 to-transparent;
+  }
+
+  .panel-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-slate-500;
+  }
+
+  .dark-panel .panel-label {
+    @apply text-slate-400;
   }
 
   .fade-up {

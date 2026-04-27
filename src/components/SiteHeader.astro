@@ -10,23 +10,26 @@ interface Props {
 const { currentPath = "/" } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
-  <Container class="py-4">
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/92 text-slate-950 backdrop-blur-xl">
+  <Container class="py-3">
     <div class="flex items-center justify-between gap-6">
-      <a href="/" class="flex items-center gap-3">
-        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white shadow-soft">
-          AX
+      <a href="/" class="group flex items-center gap-3" aria-label="Axurcio home">
+        <span class="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-ink text-sm font-black text-white shadow-soft">
+          <span class="absolute inset-x-0 bottom-0 h-1.5 bg-accent-400"></span>
+          <span class="relative">AX</span>
         </span>
         <div class="space-y-0.5">
           <span class="block font-display text-lg font-semibold text-slate-950">Axurcio</span>
-          <span class="block text-xs uppercase tracking-[0.22em] text-slate-500">AI Consultancy</span>
+          <span class="block text-xs uppercase tracking-[0.22em] text-slate-600 group-hover:text-brand-700">
+            AI Consultancy
+          </span>
         </div>
       </a>
 
       <button
         id="nav-toggle"
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-950 md:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-950 md:hidden"
         aria-expanded="false"
         aria-controls="nav-menu"
       >
@@ -38,9 +41,9 @@ const { currentPath = "/" } = Astro.props;
 
       <nav
         id="nav-menu"
-        class="absolute left-6 right-6 top-full hidden rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-soft md:static md:flex md:flex-1 md:items-center md:justify-between md:border-0 md:bg-transparent md:p-0 md:shadow-none"
+        class="absolute left-6 right-6 top-full hidden rounded-lg border border-slate-200 bg-white p-4 shadow-soft md:static md:flex md:flex-1 md:items-center md:justify-between md:border-0 md:bg-transparent md:p-0 md:shadow-none"
       >
-        <ul class="flex flex-col gap-4 md:flex-row md:items-center md:gap-2">
+        <ul class="flex flex-col gap-2 md:flex-row md:items-center md:gap-1">
           {navItems.map((item) => {
             const isActive = item.href === "/"
               ? currentPath === "/"
@@ -51,10 +54,10 @@ const { currentPath = "/" } = Astro.props;
                 <a
                   href={item.href}
                   class:list={[
-                    "inline-flex rounded-full px-4 py-2 text-sm font-semibold transition",
+                    "inline-flex rounded-md px-3 py-2 text-sm font-semibold transition",
                     isActive
-                      ? "bg-brand-50 text-brand-700"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-950",
+                      ? "bg-ink text-white"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950",
                   ]}
                 >
                   {item.label}
@@ -64,8 +67,8 @@ const { currentPath = "/" } = Astro.props;
           })}
         </ul>
 
-        <div class="mt-5 md:mt-0">
-          <ButtonLink href={site.calendlyUrl} label="Book a Consultation" external />
+        <div class="mt-4 md:mt-0">
+          <ButtonLink href={site.calendlyUrl} label="Book a Consultation" external class="w-full md:w-auto" />
         </div>
       </nav>
     </div>
