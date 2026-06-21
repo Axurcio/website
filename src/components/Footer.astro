@@ -3,20 +3,36 @@ import Container from "./Container.astro"
 ---
 <footer class="bg-lime bg-fixed bg-bottom text-black">
     <Container>
-    <div class="py-6">
-        <div class="flex flex-col items-center justify-between md:flex-row">
-            <div class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img class="w-auto" src="/Logo.svg" alt="Logo">
+    <div class="py-10">
+        <div class="grid gap-8 md:grid-cols-3">
+            <div class="space-y-3">
+                <img src="/Logo.svg" class="h-8" alt="Axurcio">
+                <p class="text-sm max-w-xs">Axurcio is the Forward Deployed Architect product from <a class="underline" href="https://smarttechventures.au" target="_blank" rel="noopener">Smart Tech Ventures</a> — Australia's leading AI architecture consultancy. We embed senior architects to design, build and govern production AI, powered by <a class="underline" href="https://arckit.org" target="_blank" rel="noopener">Arckit.org</a>.</p>
             </div>
-            <div class="flex mt-4 md:m-0">
-                <div class="-mx-4">
-                    <span class="copy-right dis-blk">Axurcio <i class="fa fa-heart cyan-color"></i></span>
-                    <span class="social">
-                      <a href="https://twitter.com/axurcio"><i class="fa fa-twitter"></i></a>
-                      <a href="https://www.linkedin.com/company/axurcio/"><i class="fa fa-linkedin"></i></a>
-                    </span>
-                </div>
+            <div class="space-y-2">
+                <span class="font-medium">Explore</span>
+                <ul class="text-sm space-y-1">
+                    <li><a class="hover:underline" href="/#services">What an FDA does</a></li>
+                    <li><a class="hover:underline" href="/arckit">ArcKit</a></li>
+                    <li><a class="hover:underline" href="/#projects">Outcomes</a></li>
+                    <li><a class="hover:underline" href="/about">About us</a></li>
+                    <li><a class="hover:underline" href="/contact">Engage an FDA</a></li>
+                </ul>
             </div>
+            <div class="space-y-2">
+                <span class="font-medium">Connect</span>
+                <p class="text-sm">hello@axurcio.com</p>
+                <p class="text-sm"><a class="hover:underline" href="https://smarttechventures.au" target="_blank" rel="noopener">smarttechventures.au</a></p>
+                <span class="social">
+                  <a href="https://www.linkedin.com/company/axurcio" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://arckit.org" aria-label="Arckit"><i class="fa fa-cogs"></i></a>
+                </span>
+            </div>
+        </div>
+        <hr class="my-6 border-black/20"/>
+        <div class="flex flex-col items-center justify-between text-sm md:flex-row">
+            <span>© <span id="currentYear"></span> Smart Tech Ventures. Axurcio is a product of Smart Tech Ventures.</span>
+            <a class="hover:underline" href="/terms.html">Terms</a>
         </div>
     </div>
     </Container>
@@ -24,5 +40,6 @@ import Container from "./Container.astro"
 
 <script is:inline>
     const year = new Date().getFullYear();
-    document.getElementById("currentYear").innerHTML = `${year}`;
+    const el = document.getElementById("currentYear");
+    if (el) el.innerHTML = `${year}`;
 </script>

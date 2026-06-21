@@ -2,23 +2,23 @@
     "team":
     [
         {
-            "title": "Principal Consultant",
+            "title": "Principal Forward Deployed Architect",
             "name": "Chris McKelt",
-            "description": "20+ years of working in the IT industry delivering solutions to clients that help them succeed. ",
+            "description": "20+ years architecting and shipping production systems. Leads embedded AI engagements end-to-end, from discovery to live operations.",
             "profile": "/team/profile_small.jpg",
             "link": "https://www.linkedin.com/in/chrismckelt/"
         },
         {
             "title": "Talent Partner",
             "name": "Tracy Dallas",
-            "description": "15+ years of experience in project management and team leadership. Strong organizational and communication skills",
+            "description": "15+ years in delivery leadership. Matches the right Forward Deployed Architect to your domain and assembles embedded squads.",
             "profile": "/team/tracy.jpg",
             "link": "/"
         },
         {
-            "title": "Data Engineer",
+            "title": "Forward Deployed Engineer — Data & AI",
             "name": "Lachlan James",
-            "description": "12+ years of experience in data architecture",
+            "description": "12+ years in data architecture, MLOps and agentic systems. Builds the evals, pipelines and monitoring that keep AI reliable in production.",
             "profile": "/team/ljm.jpg",
             "link": "https://www.linkedin.com/in/lachlan-james-1611572b2/"
         }
@@ -31,48 +31,48 @@
             "hid": "accordion-open-heading-1",
             "bid": "accordion-open-body-1",
             "target": "#accordion-open-body-1",
-            "title": "Consultation",
-            "description": "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+            "title": "Discover",
+            "description": "Your FDA embeds with your stakeholders to find the real problem — mapping AI use cases against business value, data readiness and risk. We replay our understanding so everyone is aligned before a line of code is written."
         },
         {
             "id": "02",
             "hid": "accordion-open-heading-2",
             "bid": "accordion-open-body-2",
             "target": "#accordion-open-body-2",
-            "title": "Discovery",
-            "description": "During the initial consultation, we will discuss your business goals and objectives, target audience, and current efforts. This will allow us to understand your needs and tailor our services to best fit your requirements."
+            "title": "Architect",
+            "description": "We design the solution architecture, evaluation strategy and deployment patterns — and capture it all as template-driven, audit-ready artifacts in Arckit, with the right jurisdictional overlay applied from day one."
         },
         {
             "id": "03",
             "hid": "accordion-open-heading-3",
             "bid": "accordion-open-body-3",
             "target": "#accordion-open-body-3",
-            "title": "Define Problem",
-            "description": "We will replay our understanding of the problem"
+            "title": "Build together",
+            "description": "Embedded in your environment, the FDA codes, debugs and deploys the bespoke agentic solution alongside your engineers — not over the fence. Governance gates run on every change through the Arckit harness."
         },
         {
             "id": "04",
             "hid": "accordion-open-heading-4",
             "bid": "accordion-open-body-4",
             "target": "#accordion-open-body-4",
-            "title": "Design Options",
-            "description": "We present options to solve the problem along with pros and cons, cost and time frames."
+            "title": "Evaluate & harden",
+            "description": "We stand up evals, monitoring and reliability SLOs so the system behaves in production — with full provenance and traceability for every decision and artifact."
         },
         {
             "id": "05",
             "hid": "accordion-open-heading-5",
             "bid": "accordion-open-body-5",
             "target": "#accordion-open-body-5",
-            "title": "Develop Solution",
-            "description": "We build and implement the choosen option with you alongside for the ride."
+            "title": "Ship to production",
+            "description": "We move the solution into live operations against your compliance baseline, closing the strategy-to-execution gap that stalls most AI initiatives."
         },
         {
             "id": "06",
             "hid": "accordion-open-heading-6",
             "bid": "accordion-open-body-6",
             "target": "#accordion-open-body-6",
-            "title": "Delivery & Handover",
-            "description": "We handover everything to you making sure you are ready and enabled to operate."
+            "title": "Enable & hand over",
+            "description": "We upskill your team to own and extend what we built, leaving behind documented, governed, audit-ready architecture — so capability stays in-house when the engagement ends."
         }
     ]
 }

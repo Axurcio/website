@@ -1,23 +1,46 @@
 ---
 import Container from "./Container.astro"
+
+const overlays = [
+    "Australia (AU)", "EU / GDPR", "UK Government (GDS)", "UK Finance — payments",
+    "UK NHS — clinical safety", "Canada", "UAE", "France & Austria"
+];
 ---
 <Container>
 <div class="relative flex flex-col items-center md:flex-row" id="expertise">
-    <div class="row items-center py-5 md:pr-20 md:w-3/12 md:py-10">
+    <div class="row items-center py-5 md:pr-20 md:w-4/12 md:py-10">
         <div class="text-center md:text-left space-y-3 bg-lime">
-            <h2 class="text-4xl font-medium leading-none sm:text-6xl">Experts</h2>
+            <h2 class="text-4xl font-medium leading-none sm:text-6xl">Powered by Arckit</h2>
         </div>
     </div>
-    <div class="flex items-center py-5 md:w-9/12 md:py-10">
-        <p class="text-xl font-normal leading-7 text-center md:text-center">
-            With extensive multi-cloud experience we are technology experts spanning software and data engineering, architecture and analytics.
+    <div class="flex items-center py-5 md:w-8/12 md:py-10">
+        <p class="text-xl font-normal leading-7 text-center md:text-left">
+            Every Axurcio engagement runs on <a class="underline font-medium" href="https://arckit.org" target="_blank" rel="noopener">Arckit.org</a> — the enterprise architecture governance harness that wraps your coding assistant. It gates unsafe operations, generates artifacts from templates, applies jurisdiction-specific overlays, and stamps everything with provenance and traceability. AI accelerates the first draft; Arckit keeps it audit-ready.
         </p>
     </div>
 </div>
 
-<div class="relative flex flex-col items-center md:flex-row">
-    <div class="max-w-screen-xl mx-auto px-6 md:px-14 xl:px-14">
-        <img src="https://static.wixstatic.com/media/6095f6_d90c3b0dde3e470faf9ab10ba8410381~mv2.png/v1/fill/w_772,h_437,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/SpotExpertise.png" alt="Expertise and Competencies" fetchpriority="high">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-5">
+    <div class="p-10 bg-zinc-100 rounded-[45px] border border-black">
+        <div class="text-2xl font-medium mb-3">The Governance Harness</div>
+        <p class="text-lg">Intercepts AI tool calls to gate unsafe operations and generate template-driven artifacts — requirements, risk registers, design reviews — every one traceable.</p>
+    </div>
+    <div class="p-10 bg-black text-white rounded-[45px] border border-black">
+        <div class="text-2xl font-medium mb-3">GDS-aligned workflow</div>
+        <p class="text-lg">Commands map to the five phases of the UK Government's Agile Delivery framework, from Planning through to Live operations.</p>
+    </div>
+    <div class="p-10 bg-lime rounded-[45px] border border-black">
+        <div class="text-2xl font-medium mb-3">Works with your assistant</div>
+        <p class="text-lg">Identical outputs across Claude Code, Gemini CLI, Codex CLI, OpenCode and GitHub Copilot — no lock-in to a single tool.</p>
+    </div>
+</div>
+
+<div class="p-10 bg-zinc-100 rounded-[45px] border border-black">
+    <div class="text-2xl font-medium mb-4">Multi-jurisdiction overlays</div>
+    <div class="flex flex-wrap gap-3">
+        {overlays.map(o => (
+        <span class="px-4 py-2 bg-white border border-black rounded-full text-sm font-medium">{o}</span>
+        ))}
     </div>
 </div>
 

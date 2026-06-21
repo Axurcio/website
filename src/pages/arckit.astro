@@ -1,0 +1,166 @@
+---
+import Container from "../components/Container.astro"
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+    {
+        title: "Template-driven artifacts",
+        body: "Generate requirements, risk registers, design reviews and more from approved templates — every artifact consistent, structured and ready for review.",
+        bg: "bg-zinc-100 text-black"
+    },
+    {
+        title: "Full traceability & provenance",
+        body: "Version control and end-to-end traceability chains stamp every artifact with provenance, so you always know what was decided, by whom, and why.",
+        bg: "bg-black text-white"
+    },
+    {
+        title: "Gated, safe operations",
+        body: "The harness intercepts AI tool calls and gates unsafe operations before they run — keeping AI acceleration inside guardrails you control.",
+        bg: "bg-lime text-black"
+    },
+    {
+        title: "Multi-jurisdiction overlays",
+        body: "A UK Government baseline plus community overlays apply the right regulatory rules for your jurisdiction automatically.",
+        bg: "bg-lime text-black"
+    },
+    {
+        title: "GDS-aligned workflow",
+        body: "Commands map to the five phases of the UK Government's Agile Delivery framework, from Planning through to Live operations.",
+        bg: "bg-black text-white"
+    },
+    {
+        title: "Tool-agnostic",
+        body: "Identical outputs across Claude Code, Gemini CLI, Codex CLI, OpenCode and GitHub Copilot — adopt governance without locking into one assistant.",
+        bg: "bg-zinc-100 text-black"
+    }
+];
+
+const phases = [
+    { id: "01", title: "Planning", desc: "Frame the problem, capture requirements and shape the approach as governed artifacts." },
+    { id: "02", title: "Alpha", desc: "Explore options and prototype, with risks and design decisions recorded and traceable." },
+    { id: "03", title: "Beta", desc: "Build and test against the compliance baseline, generating audit-ready evidence as you go." },
+    { id: "04", title: "Live", desc: "Operate in production with provenance intact across every change." },
+    { id: "05", title: "Retirement", desc: "Decommission cleanly with a complete, documented governance trail." }
+];
+
+const overlays = [
+    { label: "Australia (AU)", au: true },
+    { label: "Australian energy", au: true },
+    { label: "EU / GDPR", au: false },
+    { label: "UK Government (GDS)", au: false },
+    { label: "UK Finance — payments", au: false },
+    { label: "UK NHS — clinical safety", au: false },
+    { label: "Canada", au: false },
+    { label: "UAE", au: false },
+    { label: "France & Austria", au: false }
+];
+---
+
+<Layout title="ArcKit — the AI governance harness | Axurcio">
+    <main class="space-y-20">
+        <Container>
+            <!-- Hero -->
+            <div class="relative flex flex-col items-start gap-6 py-5 md:pt-10" id="arckit">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-lime rounded-full text-sm font-medium">
+                    <span class="w-2 h-2 bg-black rounded-full"></span> The engine behind every Axurcio engagement
+                </div>
+                <h1 class="text-5xl font-medium leading-none md:text-6xl">ArcKit</h1>
+                <p class="text-xl font-normal leading-7 max-w-3xl">
+                    <a class="underline font-medium" href="https://arckit.org" target="_blank" rel="noopener">ArcKit</a> is an AI-powered enterprise architecture governance platform that wraps your coding assistant. It lets teams move at AI speed while keeping every artifact compliant, traceable and audit-ready — the discipline that turns AI experiments into production systems you can stand behind.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a class="px-9 py-5 bg-zinc-900 hover:bg-lime text-white hover:text-black border border-zinc-900 rounded-2xl inline-flex" href="https://arckit.org" target="_blank" rel="noopener">
+                        <span class="text-center text-xl font-normal leading-7">Visit arckit.org</span>
+                    </a>
+                    <a class="px-9 py-5 bg-white hover:bg-black text-black hover:text-white border border-zinc-900 rounded-2xl inline-flex" href="/contact">
+                        <span class="text-center text-xl font-normal leading-7">Engage an FDA</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- The harness explained -->
+            <div class="relative flex flex-col items-center md:flex-row py-5">
+                <div class="row items-center py-5 md:pr-16 md:w-4/12 md:py-10">
+                    <div class="text-center md:text-left space-y-3 bg-lime">
+                        <h2 class="text-4xl font-medium leading-none sm:text-6xl">The Governance Harness</h2>
+                    </div>
+                </div>
+                <div class="flex items-center py-5 md:w-8/12 md:py-10">
+                    <p class="text-xl font-normal leading-7 text-center md:text-left">
+                        At its core, ArcKit's "Enterprise Governance Harness" sits between your AI assistant and your work. It intercepts tool calls, gates unsafe operations, generates artifacts from templates, applies jurisdiction-specific overlays, and stamps everything with provenance and traceability metadata — so AI accelerates the first draft while accountability stays with you.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-5">
+                {features.map(f => (
+                <div class={`p-10 rounded-[45px] border border-black ${f.bg}`}>
+                    <div class="text-2xl font-medium mb-3">{f.title}</div>
+                    <p class="text-lg">{f.body}</p>
+                </div>
+                ))}
+            </div>
+
+            <!-- GDS phases -->
+            <div class="relative flex flex-col items-center md:flex-row py-5">
+                <div class="row items-center py-5 md:pr-16 md:w-5/12 md:py-10">
+                    <div class="text-center md:text-left space-y-3 bg-lime">
+                        <h2 class="text-4xl font-medium leading-none sm:text-6xl">A workflow that maps to delivery</h2>
+                    </div>
+                </div>
+                <div class="flex items-center py-5 md:w-7/12 md:py-10">
+                    <p class="text-xl font-normal leading-7 text-center md:text-left">ArcKit's commands follow the five phases of the UK Government's GDS Agile Delivery framework — so governance is a natural part of how you ship, not a gate bolted on at the end.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {phases.map(p => (
+                <div class="p-8 bg-white rounded-[45px] border border-black flex flex-col gap-3">
+                    <span class="text-4xl font-medium">{p.id}</span>
+                    <span class="text-xl font-medium">{p.title}</span>
+                    <p class="text-sm text-zinc-700">{p.desc}</p>
+                </div>
+                ))}
+            </div>
+
+            <!-- Jurisdictions -->
+            <div class="p-10 bg-zinc-100 rounded-[45px] border border-black">
+                <div class="text-2xl font-medium mb-2">Multi-jurisdiction coverage</div>
+                <p class="text-lg mb-6 max-w-3xl">A UK Government baseline plus community overlays cover seven regulatory regimes, with sector-specific variants for UK Finance (payments), UK NHS (clinical safety) and Australian energy. As an Australian consultancy, Axurcio defaults to the <span class="font-medium">Australian overlays</span>, highlighted below.</p>
+                <div class="flex flex-wrap gap-3">
+                    {overlays.map(o => (
+                    o.au ? (
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-lime border-2 border-black rounded-full text-sm font-semibold">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.6 7.1l5.8-.8L10 1z"/></svg>
+                        {o.label}
+                    </span>
+                    ) : (
+                    <span class="px-4 py-2 bg-white border border-black rounded-full text-sm font-medium">{o.label}</span>
+                    )
+                    ))}
+                </div>
+            </div>
+
+            <!-- Works with -->
+            <div class="p-10 bg-black text-white rounded-[45px]">
+                <div class="text-2xl font-medium mb-2">Works with your assistant</div>
+                <p class="text-lg mb-6 max-w-3xl text-zinc-200">ArcKit produces identical, governed outputs no matter which AI coding assistant your team prefers.</p>
+                <div class="flex flex-wrap gap-3">
+                    {["Claude Code", "Gemini CLI", "Codex CLI", "OpenCode", "GitHub Copilot"].map(t => (
+                    <span class="px-4 py-2 bg-lime text-black rounded-full text-sm font-medium">{t}</span>
+                    ))}
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="w-full p-12 my-6 bg-lime rounded-[45px] flex flex-col items-center text-center gap-5">
+                <div class="text-3xl md:text-4xl font-medium text-black">Governed AI, delivered by an FDA</div>
+                <p class="text-lg text-black max-w-2xl">Axurcio embeds a senior architect to put ArcKit to work in your environment — shipping production AI that's audit-ready from day one.</p>
+                <a href="/contact" class="px-9 py-5 bg-zinc-900 hover:bg-white text-white hover:text-black border border-zinc-900 rounded-2xl inline-flex">
+                    <span class="text-center text-xl font-normal leading-7">Book a discovery call</span>
+                </a>
+            </div>
+        </Container>
+    </main>
+</Layout>

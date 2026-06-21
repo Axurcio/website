@@ -3,7 +3,7 @@ import Container from "../components/Container.astro"
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Axurcio - Contact">
+<Layout title="Contact — Smart Tech Ventures">
     <main class="space-y-20">
 
         <Container>
@@ -12,35 +12,56 @@ import Layout from '../layouts/Layout.astro';
                 <div class="relative flex flex-col items-center md:flex-row" id="contact">
                     <div class="row items-center py-5 md:pr-16 md:w-4/12 md:py-10">
                         <div class="text-center md:text-left space-y-3 bg-lime">
-                            <h2 class="text-4xl font-medium leading-none sm:text-6xl">Contact Us</h2>
+                            <h2 class="text-4xl font-medium leading-none sm:text-6xl">Engage an FDA</h2>
                         </div>
                     </div>
                     <div class="flex items-center py-5 md:w-8/12 md:py-10">
-                        <p class="text-xl font-normal leading-7 text-center md:text-left">Connect with Us: Let's Discuss
-                            Your Needs</p>
+                        <p class="text-xl font-normal leading-7 text-center md:text-left">Tell us where you're stuck on AI. We'll come back within one business day to scope a Forward Deployed Architect engagement.</p>
                     </div>
                 </div>
-                <div class="w-full">
-                    <iframe id="JotFormIFrame-241083155835860" title="Contact the team @ Axurcio"
-                        onload="window.parent.scrollTo(0,0)" allowtransparency="true"
-                        allow="geolocation; microphone; camera; fullscreen"
-                        src="https://form.jotform.com/241083155835860"
-                        style="min-width:100%;max-width:100%;height:900px;">
-                    </iframe>
-                    <script is:inline src='https://form.jotform.com/s/umd/latest/for-form-embed-handler.js'></script>
-                </div>
-                <div class="w-full">
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/axurcio/chat-with-chris-axurcio"
-                        style="min-width:320px;height:700px;"></div>
-                    <script is:inline type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async>
-                    </script>
-                    <!-- Calendly inline widget end -->
+
+                <div class="relative flex flex-col items-stretch gap-8 md:flex-row my-6">
+                    <div class="bg-zinc-100 rounded-[45px] p-8 md:p-12 md:w-8/12">
+                        <form name="contact" method="POST" action="mailto:hello@axurcio.com" enctype="text/plain" class="grid grid-cols-1 gap-5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <label class="flex flex-col gap-2 text-sm font-medium">Name
+                                    <input required name="name" type="text" class="px-4 py-3 rounded-2xl border border-black bg-white" placeholder="Your name" />
+                                </label>
+                                <label class="flex flex-col gap-2 text-sm font-medium">Work email
+                                    <input required name="email" type="email" class="px-4 py-3 rounded-2xl border border-black bg-white" placeholder="you@company.com" />
+                                </label>
+                            </div>
+                            <label class="flex flex-col gap-2 text-sm font-medium">Company
+                                <input name="company" type="text" class="px-4 py-3 rounded-2xl border border-black bg-white" placeholder="Company name" />
+                            </label>
+                            <label class="flex flex-col gap-2 text-sm font-medium">What are you trying to build or govern?
+                                <textarea required name="message" rows="5" class="px-4 py-3 rounded-2xl border border-black bg-white" placeholder="Tell us about your AI initiative, timeline and constraints"></textarea>
+                            </label>
+                            <button type="submit" class="px-9 py-5 bg-zinc-900 hover:bg-lime text-white hover:text-black border border-zinc-900 rounded-2xl inline-flex justify-center">
+                                <span class="text-center text-xl font-normal leading-7">Send message</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="bg-black text-white rounded-[45px] p-8 md:p-12 md:w-4/12 flex flex-col gap-6 justify-center">
+                        <div>
+                            <div class="text-lime text-sm uppercase tracking-widest mb-1">Email</div>
+                            <a class="text-xl hover:underline" href="mailto:hello@axurcio.com">hello@axurcio.com</a>
+                        </div>
+                        <div>
+                            <div class="text-lime text-sm uppercase tracking-widest mb-1">Based in</div>
+                            <div class="text-xl">Australia — working with teams nationwide</div>
+                        </div>
+                        <div>
+                            <div class="text-lime text-sm uppercase tracking-widest mb-1">The harness</div>
+                            <a class="text-xl hover:underline" href="https://arckit.org" target="_blank" rel="noopener">arckit.org</a>
+                        </div>
+                        <div>
+                            <div class="text-lime text-sm uppercase tracking-widest mb-1">Follow</div>
+                            <a class="text-xl hover:underline" href="https://www.linkedin.com/company/axurcio" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Container>
     </main>
-    <script is:inline>
-        window.jotformEmbedHandler("iframe[id='JotFormIFrame-241083155835860'", "https://form.jotform.com/")
-    </script>
 </Layout>

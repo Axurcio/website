@@ -1,11 +1,10 @@
 ---
 // Define your navigation links here
 const navLinks = [
+  { href: '/#services', label: 'What an FDA does' },
+  { href: '/arckit', label: 'ArcKit' },
+  { href: '/#projects', label: 'Outcomes' },
   { href: '/about', label: 'About us' },
-  { href: '/#services', label: 'Services' },
-  { href: '/#expertise', label: 'Expertise' },
-
-  { href: 'https://blog.axurcio.com/learn', label: 'Blog', external: true },
 ];
 
 import Container from "./Container.astro"
@@ -14,8 +13,9 @@ import Container from "./Container.astro"
 <nav class="w-full top-0 left-0 z-50 fixed bg-white">
   <Container>
     <div class="flex flex-wrap items-center justify-between mx-auto py-3">
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/Logo.svg" class="h-8" alt="Logo" />
+      <a href="/" class="flex items-center gap-3 rtl:space-x-reverse" aria-label="Axurcio home">
+          <img src="/Logo.svg" class="h-8" alt="Axurcio" />
+          <span class="hidden sm:inline text-xs text-zinc-500 border-l border-zinc-300 pl-3 leading-tight">by Smart Tech<br/>Ventures</span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 " aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
@@ -31,14 +31,14 @@ import Container from "./Container.astro"
             </li>
             ))}
             <li>
-                <a class="md:hidden px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="https://calendly.com/axurcio/chat-with-chris-axurcio" target="_blank">
-                  <h2 class="text-center text-xl font-normal leading-7">Book a meeting</h2>
+                <a class="md:hidden px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="/contact">
+                  <h2 class="text-center text-xl font-normal leading-7">Book a discovery call</h2>
                 </a>
             </li>
         </ul>
       </div>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="/contact" target="_new"><h2 class="text-center text-xl font-normal leading-7">Contact us</h2>
+      <div class="hidden w-full md:block md:w-auto">
+        <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="/contact"><h2 class="text-center text-xl font-normal leading-7">Engage an FDA</h2>
         </a>
       </div>
     </div>
